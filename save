@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# increase it if need to backup huge sites
+MAXFILES=100000
+
+DOMAIN="$1"
+if [[ "$2" == "" ]]
+then
+  START_URL="http://$DOMAIN"
+else
+  START_URL="$2"
+fi
+PARAMS="--domains $DOMAIN www.$DOMAIN $3 $4 $5 $6 $7 $8 $9 $START_URL"
+SUBDIR="backup_$DOMAIN"
+if [ -e "$SUBDIR" ]; then
+    echo "$SUBDIR already exist (completely downloaded, but when?)"
+elif [ -e "~$SUBDIR" ]; then
+    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
+else
+    mkdir "~$SUBDIR"
+    cd "~$SUBDIR"
+    echo "wget ... $PARAMS" | tee -a wget.log
+    wget --continue --recursive --convert-links  -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -l $MAXFILES -H $PARAMS 2>&1 | tee -a wget.log
+    if [ $? -eq 0 ]
+    then
+	#du -h $DOMAIN 2>&1 | tee -a wget.log
+	#du -h www.$DOMAIN 2>&1 | tee -a wget.log
+	du -h . 2>&1 | tee -a wget.log
+	cd ..
+	mv "~$SUBDIR" "$SUBDIR"
+	echo "$SUBDIR downloaded successfully (probably)"
+    else
+	cd ..
+	echo "~$SUBDIR downloaded partially (check if sufficient disk space)"
+    fi
+fi
+
+ZIPFILE="$SUBDIR.zip"
+if [ -d "$SUBDIR" ]; then
+	if [ ! -e "$ZIPFILE" ]; then
+		zip -1 -T -r $ZIPFILE backup_$1
+		if [ $? -eq 0 ]; then
+			if [ ! -e "~$SUBDIR" ]; then
+				echo -n "Deleting ~$SUBDIR..."
+				mv "$SUBDIR" "~$SUBDIR"
+				rm -r "~$SUBDIR"
+				if [ $? -eq 0 ]; then
+				    echo " Done"
+				else
+				    echo ""
+				fi
+			fi
+		fi
+	fi
+fi
+
