@@ -30,23 +30,23 @@ Follow the above section.
 
 Open a terminal in the folder and run `./save` or other script with arguments.
 
-Save quickly:
+### Save quickly:
 `./save example.com`
 
-Save from start URL:
+### Save from start URL:
 `./save example.com http://www.example.com/page.htm`
 
-Save with parameters (see the save script to understand the logic):
+### Save with parameters (see the save script to understand the logic):
 `./save example.com http://www.example.com/subdir -np`
 `./save example.com http://www.example.com -X /trash --header="Accept: text/html"`
 
-Save with random delays:
+### Save with random delays:
 `./save_gently example.com`
 
-Save list:
+### Save list:
 `./save_by_list example.txt`
 
-Save default list:
+### Save default list:
 `./save_by_list collection.txt`
 `./save_collection`
 
