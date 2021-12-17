@@ -78,6 +78,18 @@ Autotest sites after downloaded.
 
 ---
 
+## Related Projects:
+
+- [SaveMedia](https://github.com/defder-su/SaveMedia)
+
+- [RatBrowser](https://ratbrowser.com)
+
+- [IPFS](https://ipfs.io)
+
+- [ZeroNet](https://zeronet.io)
+
+---
+
 ## Contact:
 
 You are welcome in [Defder.SU](https://defder.su).
