@@ -76,6 +76,8 @@ Something like `./save example.com http://www.example.com otherdomain1.com other
 
 Autotest sites after downloaded.
 
+Indicate date when existing site was downloaded.
+
 ---
 
 ## Related Projects:
