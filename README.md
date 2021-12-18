@@ -58,7 +58,7 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 Each site may contain thousands and tens thousands files, that's why the scripts zip downloaded sites. Also, it resolves porential issues related to supporting filenames in various file systems.
 
-Mount zips: use [Zipster](https://coriolis-systems.com#free-stuff) (seeing `/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UMKMmnWYmX4Sk8Z`) on macOS, `avfs` on Linux, some tool like `WinMount` on Windows. So, you have not unpack zip-files to work with sites.
+Mount zips: use [Zipster](https://ipfs.io/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UMKMmnWYmX4Sk8Z) on macOS, `avfs` on Linux, some tool like `WinMount` on Windows. So, you have not unpack zip-files to work with sites.
 
 Limited to `100K` files per site (you can edit `MAXFILES` variable in the `save` script).
 
