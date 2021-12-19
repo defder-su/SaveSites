@@ -29,15 +29,19 @@ else
 	du -h . 2>&1 | tee -a wget.log
 	cd ..
 	mv "~$SUBDIR" "$SUBDIR"
-	echo "$SUBDIR downloaded successfully (probably)"
+	FILESCOUNT=$(find "$SUBDIR" | wc -l)
+	echo "$FILESCOUNT files"
+	if [ "$FILESCOUNT" -gt "$MAXFILES" ]; then
+	    echo "$SUBDIR downloaded, probably reaching the limit $MAXFILES files"
+	else
+	    echo "$SUBDIR downloaded successfully (perhaps)"
+	fi
     else
 	cd ..
 	echo "~$SUBDIR downloaded partially (check if sufficient disk space)"
 	exit
     fi
 fi
-
-find "$SUBDIR" | wc
 
 ZIPFILE="$SUBDIR.zip"
 if [ -d "$SUBDIR" ]; then
