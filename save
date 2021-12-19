@@ -35,6 +35,8 @@ else
     fi
 fi
 
+find "$SUBDIR" | wc
+
 ZIPFILE="$SUBDIR.zip"
 if [ -d "$SUBDIR" ]; then
 	if [ ! -e "$ZIPFILE" ]; then
