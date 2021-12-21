@@ -24,7 +24,7 @@ elif [ -e "$SUBDIR.zip" ]; then
     exit
 elif [ -e "~$SUBDIR" ]; then
     echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
-    exit
+    exit 1
 else
     mkdir "~$SUBDIR"
     cd "~$SUBDIR"
@@ -47,7 +47,7 @@ else
     else
 	cd ..
 	echo "~$SUBDIR downloaded partially (check if sufficient disk space)"
-	exit
+	exit 1
     fi
 fi
 
@@ -64,6 +64,7 @@ if [ -d "$SUBDIR" ]; then
 				    echo " Done"
 				else
 				    echo ""
+				    exit 1
 				fi
 			fi
 		fi
