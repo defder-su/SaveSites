@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ "$SAVESITE_MAXFILES" == "" ]]
+then
+    # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXFILES=...' before running the script
+    MAXFILES=100000
+else
+    MAXFILES="$SAVESITE_MAXFILES"
+fi
+
 DOMAIN="$1"
 
 type -P wayback_machine_downloader &>/dev/null && ISINST=1 || ISINST=0
@@ -22,12 +30,12 @@ elif [ -e "~$SUBDIR" ]; then
     echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
     exit 1
 else
-    wayback_machine_downloader -s -d ./~$SUBDIR http://$DOMAIN
+    wayback_machine_downloader -s -p $MAXFILES -c 1 -d ./~$SUBDIR http://$DOMAIN
     if [ $? -eq 0 ]
     then
 	du -h ./~$SUBDIR
 	mv "~$SUBDIR" "$SUBDIR"
-	echo "$SUBDIR downloaded successfully (perhaps)"				
+	echo "$SUBDIR downloaded successfully (perhaps)"
     else
 	echo "~$SUBDIR not downloaded"
 	exit 1

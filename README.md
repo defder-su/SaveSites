@@ -55,6 +55,9 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save_collection`
 
+### Save from the Wayback Machine:
+`./save_archived example.com`
+
 ---
 
 ## Notes:
