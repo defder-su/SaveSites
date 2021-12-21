@@ -1,0 +1,55 @@
+#!/bin/bash
+
+DOMAIN="$1"
+
+type -P wayback_machine_downloader &>/dev/null && ISINST=1 || ISINST=0
+
+if [ $ISINST -eq 0 ]
+then
+    echo "Install Ruby, then execute 'sudo gem install wayback_machine_downloader'"
+    echo "See also https://linuxnightly.com/how-to-download-a-website-from-the-wayback-machine"
+    echo ""
+    exit 127
+fi
+
+SUBDIR="archived_$DOMAIN"
+if [ -e "$SUBDIR" ]; then
+    echo "$SUBDIR already exist (completely downloaded, but when?)"
+elif [ -e "$SUBDIR.zip" ]; then
+    echo "$SUBDIR already exist (completely downloaded and zipped)"
+    exit
+elif [ -e "~$SUBDIR" ]; then
+    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
+    exit 1
+else
+    wayback_machine_downloader -s -d ./~$SUBDIR http://$DOMAIN
+    if [ $? -eq 0 ]
+    then
+	du -h ./~$SUBDIR
+	mv "~$SUBDIR" "$SUBDIR"
+	echo "$SUBDIR downloaded successfully (perhaps)"				
+    else
+	echo "~$SUBDIR not downloaded"
+	exit 1
+    fi
+fi
+
+ZIPFILE="$SUBDIR.zip"
+if [ -d "$SUBDIR" ]; then
+	if [ ! -e "$ZIPFILE" ]; then
+		zip -1 -T -r $ZIPFILE $SUBDIR
+		if [ $? -eq 0 ]; then
+			if [ ! -e "~$SUBDIR" ]; then
+				echo -n "Deleting ~$SUBDIR..."
+				mv "$SUBDIR" "~$SUBDIR"
+				rm -r "~$SUBDIR"
+				if [ $? -eq 0 ]; then
+				    echo " Done"
+				else
+				    echo ""
+				    exit 1
+				fi
+			fi
+		fi
+	fi
+fi
