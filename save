@@ -54,7 +54,7 @@ fi
 ZIPFILE="$SUBDIR.zip"
 if [ -d "$SUBDIR" ]; then
 	if [ ! -e "$ZIPFILE" ]; then
-		zip -1 -T -r $ZIPFILE backup_$1
+		zip -1 -T -r $ZIPFILE $SUBDIR
 		if [ $? -eq 0 ]; then
 			if [ ! -e "~$SUBDIR" ]; then
 				echo -n "Deleting ~$SUBDIR..."
