@@ -33,9 +33,13 @@ else
     wayback_machine_downloader -s -p $MAXFILES -c 1 -d ./~$SUBDIR http://$DOMAIN
     if [ $? -eq 0 ]
     then
-	du -h ./~$SUBDIR
-	mv "~$SUBDIR" "$SUBDIR"
-	echo "$SUBDIR downloaded successfully (perhaps)"
+	if [ -d "~$SUBDIR" ]; then
+	    du -h ./~$SUBDIR
+	    mv "~$SUBDIR" "$SUBDIR"
+	    echo "$SUBDIR downloaded successfully (perhaps)"
+	else
+	    exit
+	fi
     else
 	echo "~$SUBDIR not downloaded"
 	exit 1
