@@ -70,7 +70,7 @@ Each site may contain thousands and tens thousands files, that's why the scripts
 
 Mount zips: use [Zipster](https://ipfs.io/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UMKMmnWYmX4Sk8Z) on macOS, `avfs` on Linux, some tool like `WinMount` on Windows. So, you don't have to unpack zip-files to work with sites.
 
-Limited to `100K` files per site (you can edit `MAXFILES` variable in the scripts or set the variable in your shell).
+Limited to `100K` files per site (however, you can set `SAVESITE_MAXFILES` environment variable to some other value).
 
 Visit Cloudflare sites in browser, then use generated cookie as a parameter.
 
