@@ -45,16 +45,15 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save example.com http://www.example.com -X /trash --header="Accept: text/html"`
 
+`./save example.com http://www.example.com -w 15 --random-wait`
+
 ### Save a huge site (if you know, what you do):
 `export SAVESITE_MAXFILES=100000000; ./save portal.com`
-
-### Save very slowly:
-`./save example.com http://www.example.com -w 15 --random-wait`
 
 ### Save gently (little delays):
 `./save_gently example.com`
 
-### Save list (gently):
+### Save by list (gently):
 `./save_by_list example.txt`
 
 ### Save from the Wayback Machine:
@@ -77,7 +76,9 @@ Limited to `100K` files per site (however, you can set `SAVESITE_MAXFILES` envir
 
 Visit Cloudflare sites in browser, then use generated cookie as a parameter.
 
-Check sites after downloaded.
+Savings from the Wayback Machine are designed for restoration, not for browsing.
+
+Check downloaded sites.
 
 ---
 
