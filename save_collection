@@ -1,4 +1,6 @@
 echo "Feel free to add sites to collection.txt (seeing example.txt)"
 echo "Backuping..."
 ./save_by_list collection.txt
+echo "Getting from the Wayback Machine...
+./save_archived_by_list collection.txt
 echo "Done"
