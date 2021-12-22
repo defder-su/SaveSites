@@ -90,7 +90,7 @@ Something like `./save example.com http://www.example.com otherdomain1.com other
 
 Autotest sites after downloaded.
 
-Indicate date when existing site was downloaded.
+Indicate date when existing site was downloaded, maybe resave it (preserving old) if it was a long time ago.
 
 Save from the Wayback Machine with parameters (e.g., only specified URL).
 
