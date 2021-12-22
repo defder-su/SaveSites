@@ -1,4 +1,6 @@
-# SaveSites
+<h1 align="center">SaveSites</h1>
+
+<p align="center">The collection of scripts for wget and wayback_machine_downloader.</p>
 
 ## Features:
 
@@ -11,6 +13,7 @@
 ## Installation (Linux, macOS):
 
 Install `wget`.
+Install [Wayback Machine Downloader](https://github.com/hartator/wayback-machine-downloader).
 
 Create a folder where you want your sites downloaded in a drive where you have enough space available.
 
