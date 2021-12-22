@@ -48,19 +48,22 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 ### Save a huge site (if you know, what you do):
 `export SAVESITE_MAXFILES=100000000; ./save portal.com`
 
-### Save with random delays:
+### Save very slowly:
+`./save example.com http://www.example.com -w 15 --random-wait`
+
+### Save gently (little delays):
 `./save_gently example.com`
 
-### Save list:
+### Save list (gently):
 `./save_by_list example.txt`
-
-### Save default list:
-`./save_by_list collection.txt`
-
-`./save_collection`
 
 ### Save from the Wayback Machine:
 `./save_archived example.com`
+
+`./save_archived_by_list example.txt`
+
+### Save all sites from collection.txt:
+`./save_collection`
 
 ---
 
@@ -88,7 +91,7 @@ Autotest sites after downloaded.
 
 Indicate date when existing site was downloaded.
 
-Save archived with parameters.
+Save from the Wayback Machine with parameters (e.g., only specified URL).
 
 ---
 
