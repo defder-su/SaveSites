@@ -28,6 +28,8 @@ Install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (requi
 
 Follow the above section.
 
+Also, there are alternative ways to download web sites: `Teleport Pro`, `PageNest`.
+
 ---
 
 ## Usage:
