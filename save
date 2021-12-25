@@ -28,20 +28,22 @@ elif [ -e "~$SUBDIR" ]; then
 else
     mkdir "~$SUBDIR"
     cd "~$SUBDIR"
+    dig $DOMAIN any | tee -a dig.log
+    whois $DOMAIN | tee -a whois.log
     echo "wget ... $PARAMS" | tee -a wget.log
     wget --continue --recursive --convert-links  -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -l $MAXFILES -H $PARAMS 2>&1 | tee -a wget.log
     if [ $? -eq 0 ]
     then
 	#du -h $DOMAIN 2>&1 | tee -a wget.log
 	#du -h www.$DOMAIN 2>&1 | tee -a wget.log
-	wget --output-document=website.informer.html https://website.informer.com/$DOMAIN 2>&1 | tee -a wget.log
-	wget --output-document=website.informer.emails.html https://website.informer.com/$DOMAIN/emails 2>&1 | tee -a wget.log
-	wget --output-document=mywot.com.scorecard.html https://www.mywot.com/en/scorecard/$DOMAIN 2>&1 | tee -a wget.log
+	wget --output-document=informer.html https://website.informer.com/$DOMAIN 2>&1 | tee -a wget.log
+	wget --output-document=emails.html https://website.informer.com/$DOMAIN/emails 2>&1 | tee -a wget.log
+	wget --output-document=scorecard.html https://www.mywot.com/en/scorecard/$DOMAIN 2>&1 | tee -a wget.log
 	du -h . 2>&1 | tee -a wget.log
+	FILESCOUNT=$(find . | wc -l)
+	echo "$FILESCOUNT files" | tee -a wget.log
 	cd ..
 	mv "~$SUBDIR" "$SUBDIR"
-	FILESCOUNT=$(find "$SUBDIR" | wc -l)
-	echo "$FILESCOUNT files"
 	if [ "$FILESCOUNT" -gt "$MAXFILES" ]; then
 	    echo "$SUBDIR downloaded, probably reaching the limit $MAXFILES files"
 	else

@@ -12,7 +12,7 @@
 
 ## Installation (Linux, macOS):
 
-Install `wget`.
+Install `wget`, `dig`, `whois`.
 
 Install [Wayback Machine Downloader](https://github.com/hartator/wayback-machine-downloader).
 
