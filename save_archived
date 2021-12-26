@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ "$SAVESITE_MAXFILES" == "" ]]
+if [[ "$SAVESITE_MAXSNAPSHOTS" == "" ]]
 then
     # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXFILES=...' before running the script
     MAXFILES=100000
 else
-    MAXFILES="$SAVESITE_MAXFILES"
+    MAXFILES="$SAVESITE_MAXSNAPSHOTS"
 fi
 
 DOMAIN="$1"

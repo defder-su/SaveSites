@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# it doesn't work
 if [[ "$SAVESITE_MAXFILES" == "" ]]
 then
     # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXFILES=...' before running the script
@@ -31,7 +32,7 @@ else
     dig $DOMAIN any | tee -a dig.log
     whois $DOMAIN | tee -a whois.log
     echo "wget ... $PARAMS" | tee -a wget.log
-    wget --continue --recursive --convert-links  -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -l $MAXFILES -H $PARAMS 2>&1 | tee -a wget.log
+    wget --continue --recursive --convert-links  -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -H $PARAMS 2>&1 | tee -a wget.log
     if [ $? -eq 0 ]
     then
 	#du -h $DOMAIN 2>&1 | tee -a wget.log
@@ -45,11 +46,11 @@ else
 	echo "$FILESCOUNT files" | tee -a wget.log
 	cd ..
 	mv "~$SUBDIR" "$SUBDIR"
-	if [ "$FILESCOUNT" -gt "$MAXFILES" ]; then
-	    echo "$SUBDIR downloaded, probably reaching the limit $MAXFILES files"
-	else
+	#if [ "$FILESCOUNT" -gt "$MAXFILES" ]; then
+	#    echo "$SUBDIR downloaded, probably reaching the limit $MAXFILES files"
+	#else
 	    echo "$SUBDIR downloaded successfully (perhaps)"
-	fi
+	#fi
     else
 	cd ..
 	echo "~$SUBDIR downloaded partially (check if sufficient disk space)"
