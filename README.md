@@ -49,6 +49,8 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save example.com http://www.example.com -w 15 --random-wait`
 
+`./save example.com http://www.example.com --reject "morehead.php3*"`
+
 ### Save a huge site (if you know, what you do):
 `export SAVESITE_MAXFILES=100000000; ./save portal.com`
 
