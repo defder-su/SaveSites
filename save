@@ -40,6 +40,7 @@ else
 	wget --output-document=emails.html https://website.informer.com/$DOMAIN/emails 2>&1 | tee -a wget.log
 	wget --output-document=scorecard.html https://www.mywot.com/en/scorecard/$DOMAIN 2>&1 | tee -a wget.log
 	du -h . 2>&1 | tee -a wget.log
+	echo -n "Counting... "
 	FILESCOUNT=$(find . | wc -l)
 	echo "$FILESCOUNT files" | tee -a wget.log
 	cd ..
