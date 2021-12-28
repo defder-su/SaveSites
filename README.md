@@ -43,7 +43,7 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 `./save example.com http://www.example.com/page.htm`
 
 ### Save with parameters (see the save script to understand the logic):
-`./save example.com http://www.example.com/subdir -np`
+`./save example.com http://www.example.com/subdir -I /subdir`
 
 `./save example.com http://www.example.com -X /trash --header="Accept: text/html"`
 
