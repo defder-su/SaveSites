@@ -62,7 +62,7 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save_archived_by_list example.txt`
 
-### Save site map:
+### Save site maps:
 `./save_archivedmap portal.com`
 
 `./save_maps_by_list portals.txt`
