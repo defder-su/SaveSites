@@ -62,7 +62,10 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save_archived_by_list example.txt`
 
-`./save_archivedmap example.com`
+### Save site map:
+`./save_archivedmap portal.com`
+
+`./save_maps_by_list portals.txt`
 
 ### Save all sites from collection.txt:
 `./save_collection`
@@ -77,7 +80,7 @@ Mount zips: use [Zipster](https://ipfs.io/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UM
 
 Visit Cloudflare sites in browser, then use generated cookie as a parameter.
 
-Savings from the Wayback Machine are designed for restoration, not for browsing. Limited to `100K` snapshots per site (however, you can set `SAVESITE_MAXSNAPSHOTS` environment variable to some other value). Also, you can use `save_archivedmap` script to save just lists of archived files (makes sense for huge portals).
+Savings from the Wayback Machine are designed for restoration, not for browsing. Limited to `100K` snapshots per site (however, you can set `SAVESITE_MAXSNAPSHOTS` environment variable to some other value). Also, use `save_archivedmap` for portals.
 
 Check downloaded sites.
 
@@ -94,6 +97,8 @@ Autotest sites after downloaded.
 Indicate date when existing site was downloaded, maybe resave it (preserving old) if it was a long time ago.
 
 Save from the Wayback Machine with parameters (e.g., only specified URL).
+
+Save site maps from Web (using wget `--spider` flag), seeing something like [this](https://jcode.me/find-missing-content-with-wget-spider/).
 
 ---
 

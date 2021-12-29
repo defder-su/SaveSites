@@ -1,0 +1,14 @@
+
+# TODO: wget --spider ... (save_sitemap)
+
+type -P wayback_machine_downloader &>/dev/null && ISINST=1 || ISINST=0
+
+if [ $ISINST -eq 0 ]
+then
+    echo "Install Ruby, then execute 'sudo gem install wayback_machine_downloader'"
+    echo "See also https://linuxnightly.com/how-to-download-a-website-from-the-wayback-machine"
+    echo ""
+    exit 127
+fi
+
+cat $1 | xargs -L1 ./save_archivedmap
