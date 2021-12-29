@@ -62,6 +62,8 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save_archived_by_list example.txt`
 
+`./save_archivedmap example.com`
+
 ### Save all sites from collection.txt:
 `./save_collection`
 
@@ -75,7 +77,7 @@ Mount zips: use [Zipster](https://ipfs.io/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UM
 
 Visit Cloudflare sites in browser, then use generated cookie as a parameter.
 
-Savings from the Wayback Machine are designed for restoration, not for browsing. Limited to `100K` snapshots per site (however, you can set `SAVESITE_MAXSNAPSHOTS` environment variable to some other value).
+Savings from the Wayback Machine are designed for restoration, not for browsing. Limited to `100K` snapshots per site (however, you can set `SAVESITE_MAXSNAPSHOTS` environment variable to some other value). Also, you can use `save_archivedmap` script to save just lists of archived files (useful for huge portals).
 
 Check downloaded sites.
 

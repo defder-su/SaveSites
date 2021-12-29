@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DOMAIN="$1"
+
+type -P wayback_machine_downloader &>/dev/null && ISINST=1 || ISINST=0
+
+if [ $ISINST -eq 0 ]
+then
+    echo "Install Ruby, then execute 'sudo gem install wayback_machine_downloader'"
+    echo "See also https://linuxnightly.com/how-to-download-a-website-from-the-wayback-machine"
+    echo ""
+    exit 127
+fi
+
+FN="archivedmap_$DOMAIN.json"
+if [ -e "$FN" ]; then
+    echo "$FN already exist (completely downloaded map, but when?)"
+elif [ -e "~$FN" ]; then
+    echo "~$FN already exist (incompletely downloaded map), you should remove it"
+    exit 1
+else
+    wayback_machine_downloader -s -l -p 1000000000 -c 1 http://$DOMAIN | tee -a "~$FN"
+    if [ $? -eq 0 ]
+    then
+	if [ -f "~$FN" ]; then
+	    mv "~$FN" "$FN"
+	    echo "$FN downloaded successfully (perhaps)"
+	else
+	    exit
+	fi
+    else
+	echo "~$FN not downloaded"
+	exit 1
+    fi
+fi
