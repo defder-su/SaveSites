@@ -16,7 +16,7 @@ then
 else
   START_URL="$2"
 fi
-PARAMS="--domains $DOMAIN www.$DOMAIN $3 $4 $5 $6 $7 $8 $9 $START_URL"
+PARAMS="--domains=$DOMAIN,www.$DOMAIN $3 $4 $5 $6 $7 $8 $9 $START_URL"
 SUBDIR="backup_$DOMAIN"
 if [ -e "$SUBDIR" ]; then
     echo "$SUBDIR already exist (completely downloaded, but when?)"
@@ -34,7 +34,7 @@ else
     dig +trace $DOMAIN TXT | tee -a dig.log
     whois $DOMAIN | tee -a whois.log
     echo "wget ... $PARAMS" | tee -a wget.log
-    wget --continue --recursive --convert-links  -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -H $PARAMS 2>&1 | tee -a wget.log
+    wget --continue --recursive --convert-links -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" --timestamping -H $PARAMS 2>&1 | tee -a wget.log
     if [ $? -eq 0 ]
     then
 	#du -h $DOMAIN 2>&1 | tee -a wget.log
