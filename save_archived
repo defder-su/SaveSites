@@ -26,9 +26,9 @@ if [ -e "$SUBDIR" ]; then
 elif [ -e "$SUBDIR.zip" ]; then
     echo "$SUBDIR already exist (completely downloaded and zipped)"
     exit
-elif [ -e "~$SUBDIR" ]; then
-    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
-    exit 1
+#elif [ -e "~$SUBDIR" ]; then
+#    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
+#    exit 1
 else
     wayback_machine_downloader -s -p $MAXFILES -c 1 -d ./~$SUBDIR http://$DOMAIN
     if [ $? -eq 0 ]
