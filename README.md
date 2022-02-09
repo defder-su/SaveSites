@@ -100,6 +100,8 @@ Save from the Wayback Machine with parameters (e.g., only specified URL).
 
 Save site maps from Web (using wget `--spider` flag), seeing something like [this](https://jcode.me/find-missing-content-with-wget-spider/).
 
+Consider `--no-clobber` flag, maybe allow resuming incompleted downloads.
+
 ---
 
 ## Related Projects:
