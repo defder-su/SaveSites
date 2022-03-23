@@ -114,10 +114,10 @@ Allow resuming incompleted downloads (backup it first).
 
 - [IPFS](https://ipfs.io)
 
-- [ZeroNet](https://zeronet.io)
+- [ZeroNet](https://zeronet.dev)
 
 ---
 
 ## Contact:
 
-You are welcome in [Defder.SU](https://defder.su).
+You are welcome in [Defder.info](https://defder.info).

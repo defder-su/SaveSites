@@ -39,9 +39,9 @@ else
     then
 	#du -h $DOMAIN 2>&1 | tee -a wget.log
 	#du -h www.$DOMAIN 2>&1 | tee -a wget.log
-	wget --output-document=informer.html https://website.informer.com/$DOMAIN 2>&1 | tee -a wget.log
-	wget --output-document=emails.html https://website.informer.com/$DOMAIN/emails 2>&1 | tee -a wget.log
-	wget --output-document=scorecard.html https://www.mywot.com/en/scorecard/$DOMAIN 2>&1 | tee -a wget.log
+	wget --timeout=10 --output-document=informer.html https://website.informer.com/$DOMAIN 2>&1 | tee -a wget.log
+	wget --timeout=10 --output-document=emails.html https://website.informer.com/$DOMAIN/emails 2>&1 | tee -a wget.log
+	wget --timeout=10 --output-document=scorecard.html https://www.mywot.com/en/scorecard/$DOMAIN 2>&1 | tee -a wget.log
 	du -h . 2>&1 | tee -a wget.log
 	echo -n "Counting... "
 	FILESCOUNT=$(find . | wc -l)
