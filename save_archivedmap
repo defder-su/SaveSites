@@ -14,9 +14,9 @@ fi
 
 FN="archivedmap_$DOMAIN.json"
 if [ -e "$FN" ]; then
-    echo "$FN already exist (completely downloaded map, but when?)"
+    echo "$FN already exists (completely downloaded map, but when?)"
 elif [ -e "~$FN" ]; then
-    echo "~$FN already exist (incompletely downloaded map), you should remove it"
+    echo "~$FN already exists (incompletely downloaded map), you should remove it"
     exit 1
 else
     wayback_machine_downloader -s -l -p 1000000000 -c 1 http://$DOMAIN | tee -a "~$FN"

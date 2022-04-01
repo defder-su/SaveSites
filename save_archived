@@ -22,9 +22,9 @@ fi
 
 SUBDIR="archived_$DOMAIN"
 if [ -e "$SUBDIR" ]; then
-    echo "$SUBDIR already exist (completely downloaded, but when?)"
+    echo "$SUBDIR already exists (completely downloaded, but when?)"
 elif [ -e "$SUBDIR.zip" ]; then
-    echo "$SUBDIR already exist (completely downloaded and zipped)"
+    echo "$SUBDIR already exists (completely downloaded and zipped)"
     exit
 #elif [ -e "~$SUBDIR" ]; then
 #    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
