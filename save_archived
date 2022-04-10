@@ -2,7 +2,7 @@
 
 if [[ "$SAVESITE_MAXSNAPSHOTS" == "" ]]
 then
-    # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXFILES=...' before running the script
+    # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXSNAPSHOTS=...' before running the script
     MAXFILES=100000
 else
     MAXFILES="$SAVESITE_MAXSNAPSHOTS"
