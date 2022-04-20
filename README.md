@@ -18,8 +18,6 @@ Install [Wayback Machine Downloader](https://github.com/hartator/wayback-machine
 
 Create a folder where you want your sites downloaded in a drive where you have enough space available.
 
-Open a terminal in the folder and run `chmod +x save*`.
-
 ---
 
 ## Installation (Windows):
