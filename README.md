@@ -102,6 +102,12 @@ Allow resuming incompleted downloads (backup it first).
 
 ---
 
+## Stargazers
+
+[![Stargazers over time](https://starchart.cc/defder-su/SaveSites.svg)](https://starchart.cc/defder-su/SaveSites)
+
+---
+
 ## Related Projects:
 
 - [SaveMedia](https://github.com/defder-su/SaveMedia)
