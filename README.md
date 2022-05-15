@@ -2,7 +2,7 @@
 
 <p align="center">The collection of scripts for wget and wayback_machine_downloader.</p>
 
-## Features:
+## Features
 
 - Save sites by domain, saving as much content as possible.
 - Automatically zip downloaded sites (see the "Notes" section).
@@ -10,7 +10,7 @@
 
 ---
 
-## Installation (Linux, macOS):
+## Installation (Linux, macOS)
 
 Install `wget`, `dig`, `whois`.
 
@@ -20,7 +20,7 @@ Create a folder where you want your sites downloaded in a drive where you have e
 
 ---
 
-## Installation (Windows):
+## Installation (Windows)
 
 Install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (requires about 2GB disk space), [Cygwin](https://www.cygwin.com/), [Git Bash](http://git-scm.com), or some other tool that enables Bash functionality in Windows.
 
@@ -30,7 +30,7 @@ Also, there are alternative ways to download web sites: `Teleport Pro`, `PageNes
 
 ---
 
-## Usage:
+## Usage
 
 Open a terminal in the folder and run `./save` or other script with arguments.
 
@@ -70,7 +70,7 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 ---
 
-## Notes:
+## Notes
 
 Each site may contain thousands and tens thousands files, that's why the scripts zip downloaded sites. Also, it resolves porential issues related to supporting filenames in various file systems.
 
@@ -84,7 +84,7 @@ Check downloaded sites.
 
 ---
 
-## TODO:
+## TODO
 
 Version for Windows Shell, maybe with a simple GUI.
 
@@ -108,7 +108,7 @@ Allow resuming incompleted downloads (backup it first).
 
 ---
 
-## Related Projects:
+## Related Projects
 
 - [SaveMedia](https://github.com/defder-su/SaveMedia)
 
@@ -122,6 +122,6 @@ Allow resuming incompleted downloads (backup it first).
 
 ---
 
-## Contact:
+## Contact
 
 You are welcome in [Defder.info](https://defder.info).
