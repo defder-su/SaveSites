@@ -14,7 +14,9 @@
 
 Install `wget`, `dig`, `whois`.
 
-Install [Wayback Machine Downloader](https://github.com/ImportTaste/wayback-machine-downloader).
+Install [MiceWeb](https://github.com/Robotizing/MiceWeb/).
+
+Install [Wayback Machine Downloader](https://github.com/ImportTaste/wayback-machine-downloader/).
 
 Create a folder where you want your sites downloaded in a drive where you have enough space available.
 
