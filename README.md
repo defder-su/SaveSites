@@ -43,13 +43,19 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 `./save example.com http://www.example.com/page.htm`
 
 ### Save with parameters (see the save script to understand the logic):
-`./save example.com http://www.example.com/subdir -I /subdir`
+`./save example.com http://www.example.com/subdir --include-directories=/subdir`
 
-`./save example.com http://www.example.com -X /trash --header="Accept: text/html"`
+`./save example.com http://www.example.com --exclude-directories=/trash --header="Accept: text/html"`
 
-`./save example.com http://www.example.com -w 15 --random-wait`
+`./save example.com http://www.example.com --wait=15 --random-wait`
 
-`./save example.com http://www.example.com --reject "morehead.php3*"`
+`./save example.com http://www.example.com --reject="morehead.php3*"`
+
+`./save forum.example.com http://forum.example.com --reject-regex="members.php|search.php"`
+
+`./save example.com http://www.example.com --exclude-domains=ftp.example.com`
+
+`./save example.com http://www.example.com/keyword-article.htm --accept-regex=keyword`
 
 ### Save gently (little delays):
 `./save_gently example.com`
