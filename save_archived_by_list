@@ -8,4 +8,4 @@ then
     exit 127
 fi
 
-cat $1 | xargs -L1 ./save_archived
+cat $1 | awk '!a[$0]++' | xargs -L1 ./save_archived
