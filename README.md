@@ -57,6 +57,8 @@ Open a terminal in the folder and run `./save` or other script with arguments.
 
 `./save example.com http://www.example.com/keyword-article.htm --accept-regex=keyword`
 
+`export SAVESITES_DOMAINS=otherdomain1.com,otherdomain2.com ; ./save example.com` 
+
 ### Save gently (little delays):
 `./save_gently example.com`
 
@@ -95,8 +97,6 @@ Check downloaded sites.
 ## TODO
 
 Version for Windows Shell, maybe with a simple GUI.
-
-Something like `./save example.com http://www.example.com otherdomain1.com otherdomain2.com`.
 
 Autotest sites after downloaded.
 

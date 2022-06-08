@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# it doesn't work
-if [[ "$SAVESITE_MAXFILES" == "" ]]
-then
-    # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXFILES=...' before running the script
-    MAXFILES=100000
-else
-    MAXFILES="$SAVESITE_MAXFILES"
-fi
-
 DOMAIN="$1"
 if [[ "$2" == "" ]]
 then
@@ -25,7 +16,7 @@ else
     >&2 echo "Error: miceweb is not installed (seeing https://github.com/Robotizing/MiceWeb/)"
 fi
 
-PARAMS="--domains=$DOMAIN,www.$DOMAIN $3 $4 $5 $6 $7 $8 $9 $START_URL"
+PARAMS="--domains=$DOMAIN,www.$DOMAIN,$SAVESITES_DOMAINS $3 $4 $5 $6 $7 $8 $9 $START_URL"
 SUBDIR="backup_$DOMAIN"
 if [ -e "$SUBDIR" ]; then
     echo "$SUBDIR already exists (completely downloaded, but when?)"
@@ -57,11 +48,7 @@ else
 	echo "$FILESCOUNT files" | tee -a wget.log
 	cd ..
 	mv "~$SUBDIR" "$SUBDIR"
-	#if [ "$FILESCOUNT" -gt "$MAXFILES" ]; then
-	#    echo "$SUBDIR downloaded, probably reaching the limit $MAXFILES files"
-	#else
-	    echo "$SUBDIR downloaded successfully (perhaps)"
-	#fi
+	echo "$SUBDIR downloaded successfully (perhaps)"
     else
 	cd ..
 	echo "~$SUBDIR downloaded partially (check if sufficient disk space)"
