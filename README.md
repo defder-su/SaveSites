@@ -122,7 +122,7 @@ Allow resuming incompleted downloads (backup it first).
 
 - [SaveGit](https://github.com/defder-su/SaveGit)
 
-- [RatBrowser](https://ratbrowser.com)
+- [RatBrowser](http://ratbrowser.com)
 
 - [IPFS](https://ipfs.io)
 
@@ -132,4 +132,4 @@ Allow resuming incompleted downloads (backup it first).
 
 ## Contact
 
-You are welcome in [Defder.info](https://defder.info).
+You are welcome in [Defder.info](http://defder.name).
