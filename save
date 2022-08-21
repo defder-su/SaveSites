@@ -8,14 +8,6 @@ else
     START_URL="$2"
 fi
 
-type -P miceweb &>/dev/null && ISINST=1 || ISINST=0
-if [ $ISINST -eq 1 ]
-then
-    miceweb save "$START_URL" 2>/dev/null
-else
-    >&2 echo "Error: miceweb is not installed (seeing https://github.com/Robotizing/MiceWeb/)"
-fi
-
 PARAMS="--domains=$DOMAIN,www.$DOMAIN,$SAVESITES_DOMAINS $3 $4 $5 $6 $7 $8 $9 $START_URL"
 SUBDIR="backup_$DOMAIN"
 if [ -e "$SUBDIR" ]; then
@@ -76,3 +68,10 @@ if [ -d "$SUBDIR" ]; then
 	fi
 fi
 
+type -P miceweb &>/dev/null && ISINST=1 || ISINST=0
+if [ $ISINST -eq 1 ]
+then
+    miceweb save "$START_URL"
+else
+    >&2 echo "Error: miceweb is not installed (seeing https://github.com/Robotizing/MiceWeb/)"
+fi
