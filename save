@@ -26,7 +26,7 @@ else
     dig +trace $DOMAIN TXT | tee -a dig.log
     whois $DOMAIN | tee -a whois.log
     echo "wget ... $PARAMS" | tee -a wget.log
-    wget --continue --recursive --follow-ftp --retr-symlinks --restrict-file-names=windows --convert-links -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0" --timestamping -H $PARAMS 2>&1 | tee -a wget.log
+    wget --continue --recursive --follow-ftp --retr-symlinks --restrict-file-names=windows --convert-links -e robots=off -E --tries=5 --mirror -K -p --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:92.0) Gecko/20100101 Firefox/92.0" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" --timestamping -H $PARAMS 2>&1 | tee -a wget.log
     if [ $? -eq 0 ]
     then
 	#du -h $DOMAIN 2>&1 | tee -a wget.log
