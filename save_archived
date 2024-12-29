@@ -30,7 +30,8 @@ elif [ -e "$SUBDIR.zip" ]; then
 #    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
 #    exit 1
 else
-    wayback_machine_downloader -s -p $MAXSP -c 1 -d ./~$SUBDIR http://$DOMAIN
+    mkdir -p ~$SUBDIR
+    wayback_machine_downloader -s -p $MAXSP -c 1 -d ./~$SUBDIR http://$DOMAIN | tee -a ./~$SUBDIR/wayback_machine_downloader.log
     if [ $? -eq 0 ]
     then
 	if [ -d "~$SUBDIR" ]; then
