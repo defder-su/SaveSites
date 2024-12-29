@@ -31,7 +31,7 @@ elif [ -e "$SUBDIR.zip" ]; then
 #    exit 1
 else
     mkdir -p ~$SUBDIR
-    wayback_machine_downloader -s -p $MAXSP -c 1 -d ./~$SUBDIR http://$DOMAIN | tee -a ./~$SUBDIR/wayback_machine_downloader.log
+    wayback_machine_downloader -s -p $MAXSP -c 1 -d ./~$SUBDIR http://$DOMAIN #| tee -a ./~$SUBDIR/wayback_machine_downloader.log
     if [ $? -eq 0 ]
     then
 	if [ -d "~$SUBDIR" ]; then
