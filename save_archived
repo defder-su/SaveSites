@@ -10,7 +10,9 @@ then
     exit 127
 fi
 
-yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2
+if yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2; then
+    mv snapshots.json snapshots_downloaded.json
+fi
 
 exit
 
