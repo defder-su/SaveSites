@@ -1,6 +1,6 @@
 <h1 align="center">SaveSites</h1>
 
-<p align="center">The collection of scripts for wget and wayback_machine_downloader.</p>
+<p align="center">The collection of scripts for wget and yawbdl.</p>
 
 ## Features
 
