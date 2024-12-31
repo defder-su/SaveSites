@@ -14,9 +14,7 @@
 
 Install `wget`, `dig`, `whois`.
 
-Install [MiceWeb](https://github.com/Robotizing/MiceWeb/).
-
-Install [Wayback Machine Downloader](https://github.com/ShiftaDeband/wayback-machine-downloader/).
+Install [Yet Another WayBack DownLoader](https://github.com/BGforgeNet/yawbdl).
 
 Create a folder where you want your sites downloaded in a drive where you have enough space available.
 
@@ -128,3 +126,4 @@ Allow resuming incompleted downloads (backup it first).
 
 - [ZeroNet](https://zeronet.dev)
 
+- [MiceWeb](https://github.com/Robotizing/MiceWeb/)
