@@ -1,5 +1,19 @@
 #!/bin/bash
 
+DOMAIN="$1"
+SUBDIR="archived_$DOMAIN"
+
+type -P yawbdl  &>/dev/null && ISINST=1 || ISINST=0
+if [ $ISINST -eq 0 ]
+then
+    echo "Install https://github.com/BGforgeNet/yawbdl"
+    exit 127
+fi
+
+yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2
+
+exit
+
 if [[ "$SAVESITE_MAXSNAPSHOTPAGES" == "" ]]
 then
     # increase it if need to backup huge sites, or better execute 'export SAVESITE_MAXSNAPSHOTPAGES=...' before running the script
@@ -7,8 +21,6 @@ then
 else
     MAXSP="$SAVESITE_MAXSNAPSHOTPAGES"
 fi
-
-DOMAIN="$1"
 
 type -P wayback_machine_downloader &>/dev/null && ISINST=1 || ISINST=0
 
