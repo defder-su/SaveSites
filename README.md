@@ -86,7 +86,7 @@ Mount zips: use [Zipster](https://ipfs.io/ipfs/QmUBbaw45ebpNB8oTPd5jR8n6v8oGJ9UM
 
 Visit Cloudflare sites in browser, then use generated cookie as a parameter.
 
-Savings from the Wayback Machine are designed for restoration, not for browsing. Limited to `100K` snapshots per site (however, you can set `SAVESITE_MAXSNAPSHOTPAGES` environment variable to some other value). Also, use `save_archivedmap` for portals.
+Savings from the Wayback Machine are designed for restoration, not for browsing. Use `save_archivedmap` for portals.
 
 Check downloaded sites.
 
