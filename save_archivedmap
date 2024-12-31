@@ -10,8 +10,14 @@ then
     exit 127
 fi
 
-mv snapshots.json snapshots_previous.json
-yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2 -n
+if [ -f "$SUBDIR/snapshots.json" ]; then
+    PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
+    mv "$SUBDIR/snapshots.json" "$SUBDIR/snapshots_moved_$PERLDATETIME.json"	#TODO: snapshots_list_$(modification).json? https://stackoverflow.com/questions/16391208/print-a-files-last-modified-date-in-bash
+fi
+if yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2 -n; then
+    PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
+    mv "$SUBDIR/snapshots.json" "$SUBDIR/snapshots_list_$PERLDATETIME.json"
+fi
 
 exit
 
