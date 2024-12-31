@@ -10,6 +10,7 @@ then
     exit 127
 fi
 
+mv snapshots.json snapshots_previous.json
 yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2 -n
 
 exit
