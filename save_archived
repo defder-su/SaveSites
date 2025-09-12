@@ -11,8 +11,9 @@ then
 fi
 
 if yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2; then
-    PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
+	PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
     mv "$SUBDIR/snapshots.json" "$SUBDIR/snapshots_downloaded_$PERLDATETIME.json"
+	mv "$SUBDIR/yawbdl.log" "$SUBDIR/snapshots_downloaded_$PERLDATETIME.log"
 fi
 
 exit
