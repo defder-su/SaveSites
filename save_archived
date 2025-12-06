@@ -12,9 +12,16 @@ fi
 
 PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
 
-echo "Checking for empty files..."
-EFL=$SUBDIR"/empty_files_"$PERLDATETIME".log"
-find $SUBDIR -type f -empty -exec sh -c 'if rm "{}"; then echo "Removed {}"; fi' \; | tee -a $EFL
+if ls $SUBDIR/*/ -d &>/dev/null; then	#TODO: optimize by removing 'find' call?
+	echo "Checking for empty files..."
+	EFL=$SUBDIR"/empty_files_"$PERLDATETIME".log"
+	touch "$EFL"
+	find $SUBDIR/*/ -type f -empty -exec sh -c 'if rm "{}"; then echo "Removed {}"; fi' \; | tee -a $EFL
+	if [ ! -s "$EFL" ]; then
+		rm "$EFL"
+		echo "OK"
+	fi
+fi
 
 if yawbdl -d $DOMAIN -o $SUBDIR --no-fail --retries 10 --delay 2; then
     mv "$SUBDIR/snapshots.json" "$SUBDIR/snapshots_downloaded_$PERLDATETIME.json"
