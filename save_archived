@@ -1,5 +1,18 @@
 #!/bin/bash
 
+check_for_subdirs() {
+    local dir="$1"
+    shopt -s nullglob # Enable nullglob to make globs expand to nothing if no matches
+    for d in "$dir"/*/ ; do
+        if [[ -d "$d" ]]; then
+            shopt -u nullglob # Disable nullglob
+            return 0 # Found at least one subdirectory
+        fi
+    done
+    shopt -u nullglob # Disable nullglob
+    return 1 # No subdirectories found
+}
+
 DOMAIN="$1"
 SUBDIR="archived_$DOMAIN"
 
@@ -12,7 +25,7 @@ fi
 
 PERLDATETIME=$(perl -e 'my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time - 30*86400); $year += 1900; $mon += 1; printf ("%04d%02d%02d%02d%02d%02d", $year, $mon, $mday, $hour, $min, $sec)')
 
-if ls $SUBDIR/*/ -d &>/dev/null; then	#TODO: optimize by removing 'find' call?
+if check_for_subdirs $SUBDIR; then
 	echo "Checking for empty files..."
 	EFL=$SUBDIR"/empty_files_"$PERLDATETIME".log"
 	touch "$EFL"
