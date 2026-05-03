@@ -124,6 +124,6 @@ Allow resuming incompleted downloads (backup it first).
 
 - [IPFS](https://ipfs.io)
 
-- [ZeroNet](https://zeronet.dev)
+- [ZeroNet](https://zeronet.robotizing.net)
 
 - [MiceWeb](https://github.com/Robotizing/MiceWeb/)
